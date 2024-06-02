@@ -3,7 +3,7 @@
 # this file and re-run i3-config-wizard(1).
 
 # transparency
-exec picom -b
+exec picom -b -f
 # wallpaper
 exec nitrogen --restore &
 
