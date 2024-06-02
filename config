@@ -2,6 +2,8 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 
+# transparency
+exec picom -b
 # wallpaper
 exec nitrogen --restore &
 
