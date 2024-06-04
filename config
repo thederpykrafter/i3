@@ -2,6 +2,11 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 
+# gaps
+gaps inner 5px
+gaps vertical -5px
+smart_gaps on
+
 # transparency
 exec --no-startup-id picom -b -f
 
