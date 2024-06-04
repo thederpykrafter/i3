@@ -57,7 +57,7 @@ set $mode_audio Audio (1) PC, (2) TV, (3) Bluetooth
 mode "$mode_audio" {
         bindsym 1 exec --no-startup-id pactl set-default-sink 49, mode "default"
         bindsym 2 exec --no-startup-id pactl set-default-sink 57, mode "default"
-        bindsym 3 exec --no-startup-id pactl set-default-sink 66, mode "default"
+        bindsym 3 exec --no-startup-id pactl set-default-sink bluez_output.FC_58_A1_94_CC_E0.1, mode "default"
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -256,5 +256,5 @@ bar {
         # scroll left/right to switch audio output
         bindsym $scrollleft exec --no-startup-id pactl set-default-sink 57
         bindsym $scrollright exec --no-startup-id pactl set-default-sink 49
-        bindsym $scrollclick exec --no-startup-id pactl set-default-sink 66
+        bindsym $scrollclick exec --no-startup-id pactl set-default-sink bluez_output.FC_58_A1_94_CC_E0.1
 }
