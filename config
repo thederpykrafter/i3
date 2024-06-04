@@ -53,10 +53,11 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # switch between audio outputs
-set $mode_audio Audio (1) PC, (2) TV
+set $mode_audio Audio (1) PC, (2) TV, (3) Bluetooth
 mode "$mode_audio" {
         bindsym 1 exec --no-startup-id pactl set-default-sink 49, mode "default"
         bindsym 2 exec --no-startup-id pactl set-default-sink 57, mode "default"
+        bindsym 3 exec --no-startup-id pactl set-default-sink 66, mode "default"
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -64,13 +65,16 @@ mode "$mode_audio" {
 bindsym $mod+a mode "$mode_audio"
 
 # start a terminal
-bindsym $mod+t exec kitty
+bindsym $mod+t exec --no-startup-id kitty
 
 # open browser
-bindsym $mod+b exec firefox
+bindsym $mod+b exec --no-startup-id firefox
 
 # open nautilus
-bindsym $mod+n exec nautilus
+bindsym $mod+n exec --no-startup-id nautilus
+
+# open blueman
+bindsym $mod+Shift+b exec --no-startup-id blueman-manager
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -243,6 +247,7 @@ bar {
         set $scrolldown button5
         set $scrollleft button6
         set $scrollright button7
+        set $scrollclick button2
 
         # scroll on bar to change volume
         bindsym $scrollup exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -251,4 +256,5 @@ bar {
         # scroll left/right to switch audio output
         bindsym $scrollleft exec --no-startup-id pactl set-default-sink 57
         bindsym $scrollright exec --no-startup-id pactl set-default-sink 49
+        bindsym $scrollclick exec --no-startup-id pactl set-default-sink 66
 }
