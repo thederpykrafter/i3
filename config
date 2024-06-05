@@ -66,6 +66,13 @@ mode "$mode_audio" {
 }
 bindsym $mod+a mode "$mode_audio"
 
+# use playerctl to control media
+bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioStop exec --no-startup-id playerctl stop
+
+
 # start a terminal
 bindsym $mod+t exec --no-startup-id kitty
 
