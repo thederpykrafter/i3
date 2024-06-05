@@ -25,6 +25,8 @@ client.background       #FFFFFF
 
 # second monitor
 exec --no-startup-id xrandr --output HDMI-1-0 --auto --left-of eDP-1
+# default audio output
+exec --no-startup-id pactl set-default-sink 57 # TV
 
 # set mod key to Windows button
 set $mod Mod4
@@ -53,7 +55,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # switch between audio outputs
-set $mode_audio Audio (1) PC, (2) TV, (3) Bluetooth
+set $mode_audio Audio (1) PC, (2) TV, (3) E7
 mode "$mode_audio" {
         bindsym 1 exec --no-startup-id pactl set-default-sink 49, mode "default"
         bindsym 2 exec --no-startup-id pactl set-default-sink 57, mode "default"
@@ -181,6 +183,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# System menu
 set $Locker i3lock -i ~/.config/nitrogen/Wallpapers/purple.png && sleep 1
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -254,7 +258,7 @@ bar {
         bindsym $scrolldown exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
         
         # scroll left/right to switch audio output
-        bindsym $scrollleft exec --no-startup-id pactl set-default-sink 57
-        bindsym $scrollright exec --no-startup-id pactl set-default-sink 49
-        bindsym $scrollclick exec --no-startup-id pactl set-default-sink bluez_output.FC_58_A1_94_CC_E0.1
+        bindsym $scrollleft exec --no-startup-id pactl set-default-sink 57 # TV
+        bindsym $scrollright exec --no-startup-id pactl set-default-sink 49 # Laptop
+        bindsym $scrollclick exec --no-startup-id pactl set-default-sink bluez_output.FC_58_A1_94_CC_E0.1 # E7 Headphones
 }
