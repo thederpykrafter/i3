@@ -74,7 +74,7 @@ bindsym XF86AudioStop exec --no-startup-id playerctl stop
 
 
 # start a terminal
-bindsym $mod+t exec --no-startup-id kitty
+bindsym $mod+t exec --no-startup-id kitty --config ~/.config/kitty/kitty.conf
 
 # open browser
 bindsym $mod+b exec --no-startup-id firefox
