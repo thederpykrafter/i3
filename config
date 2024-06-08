@@ -80,6 +80,11 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#430A5D' -sf '#EEEEEE' -fn 'monospace-10' -p 'dmenu > '"
 
+# screenshot program
+# PrintScr then click window to capture
+# OVERITES PREVIOUS SCREENSHOT
+bindsym Print exec --no-startup-id kitty -e import screenshot.png
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
