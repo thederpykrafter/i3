@@ -82,7 +82,7 @@ bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '
 
 # screenshot program
 # PrintScr then click window to capture
-# OVERITES PREVIOUS SCREENSHOT
+# TODO OVERITES PREVIOUS SCREENSHOT
 bindsym Print exec --no-startup-id kitty -e import screenshot.png
 
 # change focus
