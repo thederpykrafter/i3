@@ -3,8 +3,8 @@
 # this file and re-run i3-config-wizard(1).
 
 # gaps
-gaps inner 5px
-gaps vertical -5px
+gaps inner 8px
+gaps outer -4px
 smart_gaps on
 
 # numlock on login
