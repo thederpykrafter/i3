@@ -7,6 +7,9 @@ gaps inner 5px
 gaps vertical -5px
 smart_gaps on
 
+# numlock on login
+exec --no-startup-id xdotool key --clearmodifiers Num_Lock
+
 # transparency
 exec --no-startup-id picom -b -f
 
