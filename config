@@ -24,6 +24,7 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 client.background       #FFFFFF
 
 # second monitor
+exec --no-startup-id xrandr --output eDP-1 --pos 0x0 --right-of HDMI-1-0
 exec --no-startup-id xrandr --output HDMI-1-0 --auto --left-of eDP-1
 # default audio output
 exec --no-startup-id pactl set-default-sink alsa_output.pci-0000_01_00.1.hdmi-stereo # TV
