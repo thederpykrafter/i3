@@ -85,6 +85,9 @@ bindsym $mod+n exec --no-startup-id nautilus
 # open blueman
 bindsym $mod+Shift+b exec --no-startup-id blueman-manager
 
+# open nitrogen
+bindsym $mod+Shift+n exec --no-startup-id nitrogen --save
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
