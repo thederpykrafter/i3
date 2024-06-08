@@ -7,6 +7,9 @@ gaps inner 8px
 gaps outer -4px
 smart_gaps on
 
+# remove title bar
+for_window [class="^.*"] border pixel 3
+
 # numlock on login
 exec --no-startup-id xdotool key --clearmodifiers Num_Lock
 
