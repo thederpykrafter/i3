@@ -82,6 +82,9 @@ bindsym $mod+b exec --no-startup-id firefox
 # open nautilus
 bindsym $mod+n exec --no-startup-id nautilus
 
+# open github-desktop
+bindsym $mod+g exec --no-startup-id github-desktop
+
 # open blueman
 bindsym $mod+Shift+b exec --no-startup-id blueman-manager
 
