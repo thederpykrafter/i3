@@ -57,7 +57,8 @@ exec --no-startup-id nm-applet
 set $mod Mod4
 
 # start a terminal
-bindsym $mod+t exec --no-startup-id kitty --config ~/.config/kitty/kitty.conf
+bindsym $mod+t exec --no-startup-id alacritty
+#kitty --config ~/.config/kitty/kitty.conf
 
 # open browser
 bindsym $mod+b exec --no-startup-id firefox
