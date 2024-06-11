@@ -239,6 +239,9 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioStop exec --no-startup-id playerctl stop
 
+# open youtube music in firefox
+bindsym XF86Tools exec --no-startup-id firefox "music.youtube.com"
+
 #                            Workspaces
 ###########################################################
 
