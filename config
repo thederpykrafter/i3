@@ -194,10 +194,10 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 
 # Laptop
-exec --no-startup-id xrandr --output eDP-1 --pos 0x0 --right-of HDMI-1-0
+#exec --no-startup-id xrandr --output eDP-1 --pos 0x0 --right-of HDMI-1-0
 
 # TV
-#exec --no-startup-id xrandr --output HDMI-1-0 --auto --left-of eDP-1
+exec --no-startup-id xrandr --output HDMI-1-0 --auto --left-of eDP-1
 
 #                        Audio
 ###########################################################
