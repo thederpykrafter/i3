@@ -193,40 +193,37 @@ bindsym $mod+r mode "resize"
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 
-# Laptop
-#exec --no-startup-id xrandr --output eDP-1 --pos 0x0 --right-of HDMI-1-0
-
 # TV
 exec --no-startup-id xrandr --output HDMI-1-0 --auto --left-of eDP-1
 
 #                        Audio
 ###########################################################
 # default audio output
-exec --no-startup-id wpctl set-default 55 # TV
+exec --no-startup-id pactl set-default-sink alsa_output.pci-0000_01_00.1.hdmi-stereo # TV
 
 # Use wpctl to adjust volume in Pipewire.
 set $refresh_i3status killall -SIGUSR1 i3status
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+ && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 
-bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%- && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 
-bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 
-bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # switch between audio outputs
 set $mode_audio Audio (1) PC, (2) TV, (3) E7
 
 mode "$mode_audio" {
         # Laptop
-        bindsym 1 exec --no-startup-id wpctl set-default 49, mode "default"
+        bindsym 1 exec --no-startup-id pactl set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo.2, mode "default"
 
         # TV
-        bindsym 2 exec --no-startup-id wpctl set-default 55, mode "default"
+        bindsym 2 exec --no-startup-id pactl set-default-sink alsa_output.pci-0000_01_00.1.hdmi-stereo.3, mode "default"
 
         # E7
-        bindsym 3 exec --no-startup-id wpctl set-default 69, mode "default"
+        bindsym 3 exec --no-startup-id pactl set-default-sink bluez_output.FC_58_A1_94_CC_E0.1, mode "default"
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -308,14 +305,14 @@ bar {
         set $scrollclick button2
 
         # scroll on bar to change volume
-        bindsym $scrollup exec --no-startup-id wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+ && $refresh_i3status
+        bindsym $scrollup exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 
-        bindsym $scrolldown exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 10%- && $refresh_i3status
+        bindsym $scrolldown exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
         
         # scroll left/right to switch audio output
-        bindsym $scrollleft exec --no-startup-id wpctl set-default 55 # TV
+        bindsym $scrollleft exec --no-startup-id pactl set-default-sink alsa_output.pci-0000_01_00.1.hdmi-stereo.3 # TV
 
-        bindsym $scrollright exec --no-startup-id wpctl set-default 49 # Laptop
+        bindsym $scrollright exec --no-startup-id pactl set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo.2 # Laptop
 
-        bindsym $scrollclick exec --no-startup-id wpctl set-default 69 # E7 Headphones
+        bindsym $scrollclick exec --no-startup-id pactl set-default-sink bluez_output.FC_58_A1_94_CC_E0.1 # E7 Headphones
 }
