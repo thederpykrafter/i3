@@ -202,7 +202,7 @@ exec --no-startup-id xrandr --output HDMI-1-0 --auto --left-of eDP-1
 #                        Audio
 ###########################################################
 # default audio output
-exec --no-startup-id wpctl set-default 51 # TV
+exec --no-startup-id wpctl set-default 55 # TV
 
 # Use wpctl to adjust volume in Pipewire.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -220,10 +220,10 @@ set $mode_audio Audio (1) PC, (2) TV, (3) E7
 
 mode "$mode_audio" {
         # Laptop
-        bindsym 1 exec --no-startup-id wpctl set-default 48, mode "default"
+        bindsym 1 exec --no-startup-id wpctl set-default 49, mode "default"
 
         # TV
-        bindsym 2 exec --no-startup-id wpctl set-default 51, mode "default"
+        bindsym 2 exec --no-startup-id wpctl set-default 55, mode "default"
 
         # E7
         bindsym 3 exec --no-startup-id wpctl set-default 69, mode "default"
@@ -313,9 +313,9 @@ bar {
         bindsym $scrolldown exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 10%- && $refresh_i3status
         
         # scroll left/right to switch audio output
-        bindsym $scrollleft exec --no-startup-id wpctl set-default 51 # TV
+        bindsym $scrollleft exec --no-startup-id wpctl set-default 55 # TV
 
-        bindsym $scrollright exec --no-startup-id wpctl set-default 48 # Laptop
+        bindsym $scrollright exec --no-startup-id wpctl set-default 49 # Laptop
 
         bindsym $scrollclick exec --no-startup-id wpctl set-default 69 # E7 Headphones
 }
