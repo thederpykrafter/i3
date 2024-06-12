@@ -64,7 +64,7 @@ bindsym $mod+t exec --no-startup-id alacritty
 bindsym $mod+b exec --no-startup-id firefox
 
 # open nautilus
-bindsym $mod+n exec --no-startup-id nautilus
+bindsym $mod+n exec --no-startup-id thunar
 
 # open github-desktop
 bindsym $mod+g exec --no-startup-id github-desktop
